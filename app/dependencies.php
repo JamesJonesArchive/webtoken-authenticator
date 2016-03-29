@@ -54,7 +54,7 @@ $container['logger'] = function ($c) use ($settings) {
  */
 
 $container['myService'] =  function ($c) {
-    return new \USF\IdM\AuthTransfer\WebToken\Service\ExampleService($c->logger, $c->settings);
+    return new \USF\IdM\AuthTransfer\AuthToken\Service\ExampleService($c->logger, $c->settings);
 };
 
 /**
@@ -70,11 +70,11 @@ $container['myService'] =  function ($c) {
  */
 
 // Application Home Page
-$container['AuthTransfer\WebToken\Action\HomeAction'] = function ($c) {
-    return new \USF\IdM\AuthTransfer\WebToken\Action\HomeAction($c->view, $c->logger, $c->settings);
+$container['AuthTransfer\AuthToken\Action\HomeAction'] = function ($c) {
+    return new \USF\IdM\AuthTransfer\AuthToken\Action\HomeAction($c->view, $c->logger, $c->settings);
 };
 
 //// Example Controller with a Service
-$container['AuthTransfer\WebToken\Action\ExampleAction'] = function ($c) {
-    return new \USF\IdM\AuthTransfer\WebToken\Action\ExampleAction($c->view, $c->logger, $c->settings, $c->myService);
+$container['AuthTransfer\AuthToken\Action\ExampleAction'] = function ($c) {
+    return new \USF\IdM\AuthTransfer\AuthToken\Action\ExampleAction($c->view, $c->logger, $c->settings, $c->myService);
 };

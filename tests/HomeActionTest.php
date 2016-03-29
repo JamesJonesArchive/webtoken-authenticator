@@ -1,7 +1,7 @@
 <?php
 
 
-namespace USF\IdM\SlimSkeleton\Action;
+namespace USF\IdM\AuthTransfer\AuthToken\Action;
 
 class HomeActionTest extends \PHPUnit_Framework_TestCase
 {
@@ -48,7 +48,7 @@ class HomeActionTest extends \PHPUnit_Framework_TestCase
         $app = $this->app;
         $resOut = $app($req, $res);
         $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
-        $this->assertContains('<title>SlimSkeleton | Main</title>', (string) $res->getBody());
+        $this->assertContains('<title>CAS AuthToken | Main</title>', (string) $res->getBody());
     }
 
 }

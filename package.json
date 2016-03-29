@@ -1,5 +1,5 @@
 {
-  "name": "webtoken-authenticator",
+  "name": "cas-authtoken-authenticator",
   "version": "2.0.0",
   "description": "Skeleton project using Slim and Grunt",
   "main": "Gruntfile.js",

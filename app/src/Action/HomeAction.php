@@ -1,6 +1,6 @@
 <?php
 
-namespace USF\IdM\AuthTransfer\WebToken\Action;
+namespace USF\IdM\AuthTransfer\AuthToken\Action;
 
 use Slim\Views\Twig;
 use Slim\Collection;
@@ -60,7 +60,7 @@ final class HomeAction
          */
 
         $view_attr = [
-            'page_title' => 'WebToken | Main'  // This will used in the <title> element on the page
+            'page_title' => 'CAS AuthToken | Main'  // This will used in the <title> element on the page
         ];
 
         return $this->view->render($response, 'home.html', $view_attr);
