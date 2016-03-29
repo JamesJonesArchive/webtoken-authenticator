@@ -1,6 +1,6 @@
 <?php
 
-namespace USF\IdM\SlimSkeleton\Action;
+namespace USF\IdM\AuthTransfer\WebToken\Action;
 
 use Slim\Views\Twig;
 use Slim\Collection;
@@ -8,7 +8,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-use USF\IdM\SlimSkeleton\Service\ExampleService;
+use USF\IdM\AuthTransfer\WebToken\Service\ExampleService;
 
 /**
  * Example Controller
@@ -58,7 +58,7 @@ final class ExampleAction
         $albumID = $args['album_id'] ?? $request->getQueryParams()['album'] ?? 1;
 
         $view_attr = [
-            'page_title' => 'SlimSkeleton | Example',  // This will used in the <title> element on the page
+            'page_title' => 'WebToken | Example',  // This will used in the <title> element on the page
             'username' => $netid,
             'eppa' => $eppa,
             'data' => $this->service->getPhotos($albumID)
