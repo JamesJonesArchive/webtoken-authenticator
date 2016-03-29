@@ -120,6 +120,13 @@ module.exports = function(grunt) {
                 }
             }
         },
+        composer: {
+            options: {
+                usePhp: false,
+                cwd: './',
+                flags: ['ignore-platform-reqs']
+            }
+        },
         phpunit: {
             classes: {
                 dir: 'tests/'   //location of the tests
@@ -148,6 +155,13 @@ module.exports = function(grunt) {
                     livereload: true                        //reloads the browser
                 }
             },
+            composer_json: {
+                files: [ 
+                    './composer.json', 
+                    './composer.lock' 
+                ],
+                tasks: [ 'composer:update' ],
+            },
             tests: {
                 files: ['public/src/*.php'],  //the task will run only when you save files in this location
                 tasks: ['phpunit']
@@ -159,6 +173,7 @@ module.exports = function(grunt) {
     // Task definition
     grunt.registerTask('default', ['build']);
     grunt.registerTask('build', [
+        'composer:update',
         'phpunit',
         'clean',
         'imagemin',
