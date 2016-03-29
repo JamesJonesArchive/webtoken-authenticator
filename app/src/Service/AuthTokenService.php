@@ -23,8 +23,7 @@ use GuzzleHttp\Client;
  * @license http://www.opensource.org/licenses/MIT MIT
  * @link https://github.com/USF-IT/slim-skeleton
  */
-class ExampleService
-{
+class AuthTokenService implements \USF\IdM\AuthTransfer\AuthTransferServiceInterface {
     private $logger;
     private $settings;
 
@@ -54,4 +53,9 @@ class ExampleService
         return json_decode($client->get("http://jsonplaceholder.typicode.com/album/${album_id}/photos")->getBody(), true);
 
     }
+
+    public function getRedirectUrl($paramMap) {
+        
+    }
+
 }
