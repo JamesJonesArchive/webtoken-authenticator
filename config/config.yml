@@ -1,5 +1,12 @@
 # Slim Configuration
 slimSettings:
+  casToken:
+    enabled: true
+    key: 
+        name: casTokenService
+        value: 1234567890123456
+    casURL: https://watson.it.usf.edu:8443/social-cas
+    redirectURL: http://www.usf.edu
   # Display error messages to the user when an exception is thrown
   displayErrorDetails: true
   # Use Monolog for logging

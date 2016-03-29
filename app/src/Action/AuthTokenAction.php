@@ -24,10 +24,23 @@ class AuthTokenAction extends \USF\IdM\AuthTransfer\BasicAuthServiceAction {
      */
     public function dispatch(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args) {
         if($this->settings['casToken']['enabled'] ?? TRUE) {
+            // Get the username
+            $username = $this->getNetid($request);
+            $firstname = self::getFirstElement($this->getAttributeByName($request, 'GivenName'));
+            $lastname = self::getFirstElement($this->getAttributeByName($request, 'Surname'));
+            
             
         } else {
             $this->logger->error("Request for CAS AuthToken - Disabled|AUTHTOKEN_DISABLED"); 
             return $this->view->render($response, 'error.html', ['disabled' => TRUE, 'statusText' => "Requests for CAS AuthToken are disabled" ]);            
+        }
+    }
+    public static function getFirstElement($arr) {
+        if(empty($arr)) {
+            return '';
+        } else {
+            \reset($arr);
+            return \current($arr);
         }
     }
 }
