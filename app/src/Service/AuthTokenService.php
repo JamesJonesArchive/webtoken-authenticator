@@ -1,6 +1,6 @@
 <?php
 /**
- * Example Service
+ * CAS Auth Token Service
  *
  * @category usf-it
  * @package slim-skeleton
@@ -12,7 +12,7 @@ namespace USF\IdM\AuthTransfer\AuthToken\Service;
 
 use Psr\Log\LoggerInterface;
 use Slim\Collection;
-use GuzzleHttp\Client;
+use \Firebase\JWT\JWT;
 
 /**
  *
@@ -33,29 +33,29 @@ class AuthTokenService implements \USF\IdM\AuthTransfer\AuthTransferServiceInter
         $this->settings = $settings;
 
         // Pull config data from the settings object
-        $serviceConfig = $settings['example_config'];
+        //$serviceConfig = $settings['example_config'];
 
         // If you need to configure your service object, do it here and  add it as a
         // private property to the class.
     }
 
-    /**
-     * Get a list of photos from a public webservice (http://jsonplaceholder.typicode.com/)
-     *
-     * @param $input_text
-     * @return mixed
-     */
-    public function getPhotos($album_id)
-    {
-        $client = new Client();
-
-        // get JSON from the webservice and convert it into an assoc. array
-        return json_decode($client->get("http://jsonplaceholder.typicode.com/album/${album_id}/photos")->getBody(), true);
-
-    }
-
     public function getRedirectUrl($paramMap) {
-        
+        return \trim($paramMap['casURL'],'/')."/login?".
+        \http_build_query(\array_filter($paramMap, function($key) {
+            return !\in_array($key, ['casURL','json_data']);
+        }, \ARRAY_FILTER_USE_KEY));
     }
-
+    
+    public function getToken($attributeMap, $keyValue) {
+        return \call_user_func(function($token) use ($keyValue) {
+            return [
+                "json" => \json_encode($token),
+                "final" => JWT::encode($token, $keyValue)
+            ];
+        }, [
+            "generated" => (new \DateTime())->getTimestamp(),
+            "credentials" => $attributeMap
+        ]);
+    }
+    
 }
