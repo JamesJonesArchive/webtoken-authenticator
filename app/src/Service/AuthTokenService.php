@@ -12,7 +12,7 @@ namespace USF\IdM\AuthTransfer\AuthToken\Service;
 
 use Psr\Log\LoggerInterface;
 use Slim\Collection;
-use \Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
 
 /**
  *

@@ -24,12 +24,12 @@ class AuthTokenAction extends \USF\IdM\AuthTransfer\BasicAuthServiceAction {
      */
     public function dispatch(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args) {
         if($this->settings['casToken']['enabled'] ?? TRUE) {
-            $username = $this->getNetid($request); // Get the username 
+            $username = self::getFirstElement($request->getHeader('AUTH_PRINCIPAL')); // Get the username 
             $attributeMap = [
                 "username" => $username,               
-                "GivenName" => self::getFirstElement($this->getAttributeByName($request, 'GivenName')), //GivenName can be a list of names (first, middle), so just grab the first name
-                "FamilyName" => self::getFirstElement($this->getAttributeByName($request, 'Surname')),
-                "Email" => $this->getAttributeByName($request, 'mail'),
+                "GivenName" => self::getFirstElement($request->getHeader('AUTH_ATTR_GIVENNAME')), //GivenName can be a list of names (first, middle), so just grab the first name
+                "FamilyName" => self::getFirstElement($request->getHeader('AUTH_ATTR_SURNAME')),
+                "Email" => $request->getHeader('AUTH_ATTR_MAIL'),
                 "ProviderName" => "UsfNetid"
             ];
             
