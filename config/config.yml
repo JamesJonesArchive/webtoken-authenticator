@@ -1,12 +1,34 @@
 # Slim Configuration
 slimSettings:
-  casToken:
-    enabled: true
-    key: 
-        name: casTokenService
-        value: 1234567890123456
-    casURL: https://watson.it.usf.edu:8443/social-cas
-    redirectURL: http://www.usf.edu
+  webtoken:
+        enabled: true
+        issuer: https://localhost:8080/webtoken
+        validUrlPatterns: 
+            - 
+                '^https?://.*'
+            - 
+                '^file:///.*'
+        signingAlgorithm: 'HS256'
+        appRegistry: 
+            - 
+                id: 'https://example.edu/test'
+                name: 'Test Application 1'
+                description: 'This is only a test.'
+                contact:
+                    name: 'John Smith'
+                    phone: '555-555-5555'
+                    email: 'jsmith@example.edu'
+                    department: 'Information Technology'
+                attributes: 
+                - 
+                    'GivenName'
+                - 
+                    'Surname'
+                - 
+                    'EduPersonPrimaryAffiliation'
+                - 
+                    'mail'
+                sharedSecret: 'geZHfW7mUmZhcfWFpqswN4F7zAEBxALc'        
   # Display error messages to the user when an exception is thrown
   displayErrorDetails: true
   # Use Monolog for logging

@@ -7,17 +7,28 @@
  */
 
 // Application Home Page
-$app->get('/', 'AuthTransfer\AuthToken\Action\HomeAction:dispatch')
+$app->get('/', 'AuthTransfer\WebToken\Action\HomeAction:dispatch')
     ->setName('homepage');
 
-// Display images from a webservice.  The album id piece of URL is optional.
-//$app->get('/example[/{album_id}]', 'AuthTransfer\AuthToken\Action\ExampleAction:dispatch')
-//    ->setName('displayPlaceholderImages');
+// Webtoken handling
+$app->get('/disabled', 'AuthTransfer\WebToken\Action\WebTokenAction:dispatch')
+    ->setName('disabled');
 
-// If you need to use POST or PUT you can config the route like this.
-//$app->post('/example', 'AuthTransfer\AuthToken\Action\ExampleAction:runThisMethod')
-//    ->setName('examplePOST');
+$app->get('/request','AuthTransfer\WebToken\Action\WebTokenAction:request')
+    ->setName('request');
 
-// Gartner handling
-$app->get('/authtoken', 'AuthTransfer\AuthToken\Action\AuthTokenAction:dispatch')
-    ->setName('authtoken');
+$app->post('/request','AuthTransfer\WebToken\Action\WebTokenAction:request')
+    ->setName('request');
+
+$app->get('/validate','AuthTransfer\WebToken\Action\WebTokenAction:validate')
+    ->setName('validate');
+
+$app->post('/validate','AuthTransfer\WebToken\Action\WebTokenAction:validate')
+    ->setName('validate');
+
+$app->get('/login','AuthTransfer\WebToken\Action\WebTokenAction:login')
+    ->setName('validate');
+
+$app->post('/login','AuthTransfer\WebToken\Action\WebTokenAction:login')
+    ->setName('validate');
+

@@ -53,8 +53,8 @@ $container['logger'] = function ($c) use ($settings) {
  * views.  View routes.php to see how these classes are mapped to URLs
  */
 
-$container['authToken'] =  function ($c) {
-    return new \USF\IdM\AuthTransfer\AuthToken\Service\AuthTokenService($c->logger, $c->settings);
+$container['webToken'] =  function ($c) {
+    return new \USF\IdM\AuthTransfer\WebToken\Service\WebTokenService($c->logger, $c->settings);
 };
 
 /**
@@ -70,11 +70,11 @@ $container['authToken'] =  function ($c) {
  */
 
 // Application Home Page
-$container['AuthTransfer\AuthToken\Action\HomeAction'] = function ($c) {
-    return new \USF\IdM\AuthTransfer\AuthToken\Action\HomeAction($c->view, $c->logger, $c->settings);
+$container['AuthTransfer\WebToken\Action\HomeAction'] = function ($c) {
+    return new \USF\IdM\AuthTransfer\WebToken\Action\HomeAction($c->view, $c->logger, $c->settings);
 };
 
-//// CAS AuthToken Controller with a Service
-$container['AuthTransfer\AuthToken\Action\AuthTokenAction'] = function ($c) {
-    return new \USF\IdM\AuthTransfer\AuthToken\Action\AuthTokenAction($c->view, $c->logger, $c->settings, $c->authToken);
+//// WebToken Controller with a Service
+$container['AuthTransfer\WebToken\Action\WebTokenAction'] = function ($c) {
+    return new \USF\IdM\AuthTransfer\WebToken\Action\WebTokenAction($c->view, $c->logger, $c->settings, $c->webToken);
 };

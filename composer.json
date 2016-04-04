@@ -1,5 +1,5 @@
 {
-    "name": "usf-it/cas-authtoken-authenticator",
+    "name": "usf-it/webtoken-authenticator",
     "description": "A Slim Framework 3.0 skeleton application for rapid development",
     "keywords": ["microframework","rest","router"],
     "homepage": "http://github.com/USF-IT/slim-skeleton",
@@ -19,7 +19,8 @@
         "usf-it/usf-auth": "^0.6.0",
         "usf-it/usf-idm-common": "dev-develop",
         "akrabat/rka-ip-address-middleware": "^0.4.0",
-        "firebase/php-jwt": "v3.0.0"
+        "firebase/php-jwt": "v3.0.0",
+        "ramsey/uuid": "3.3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "@stable",
@@ -30,7 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-            "USF\\IdM\\AuthTransfer\\AuthToken\\": "app/src/"
+            "USF\\IdM\\AuthTransfer\\WebToken\\": "app/src/"
         }
     }
 }

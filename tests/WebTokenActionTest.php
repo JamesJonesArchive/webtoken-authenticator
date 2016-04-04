@@ -1,9 +1,9 @@
 <?php
 
 
-namespace USF\IdM\AuthTransfer\AuthToken\Action;
+namespace USF\IdM\AuthTransfer\WebToken\Action;
 
-class AuthTokenActionTest extends \PHPUnit_Framework_TestCase
+class WebTokenActionTest extends \PHPUnit_Framework_TestCase
 {
     private $app;
 
@@ -59,7 +59,7 @@ class AuthTokenActionTest extends \PHPUnit_Framework_TestCase
 //        $app = $this->app;
 //        $resOut = $app($req, $res);
 //        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
-//        $this->assertContains('<title>CAS AuthToken | Example</title>', (string) $res->getBody());
+//        $this->assertContains('<title>WebToken | Example</title>', (string) $res->getBody());
 //        $this->assertContains('<h1>Album 1</h1>', (string) $res->getBody());
 //    }
 //
@@ -82,7 +82,7 @@ class AuthTokenActionTest extends \PHPUnit_Framework_TestCase
 //        $app = $this->app;
 //        $resOut = $app($req, $res);
 //        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
-//        $this->assertContains('<title>CAS AuthToken | Example</title>', (string) $res->getBody());
+//        $this->assertContains('<title>WebToken | Example</title>', (string) $res->getBody());
 //        $this->assertContains('<h1>Album 50</h1>', (string) $res->getBody());
 //    }
 //
@@ -105,7 +105,7 @@ class AuthTokenActionTest extends \PHPUnit_Framework_TestCase
 //        $app = $this->app;
 //        $resOut = $app($req, $res);
 //        $this->assertInstanceOf('\Psr\Http\Message\ResponseInterface', $resOut);
-//        $this->assertContains('<title>CAS AuthToken | Example</title>', (string) $res->getBody());
+//        $this->assertContains('<title>WebToken | Example</title>', (string) $res->getBody());
 //        $this->assertContains('<h1>Album 25</h1>', (string) $res->getBody());
 //    }
 }
