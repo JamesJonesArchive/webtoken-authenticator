@@ -55,7 +55,7 @@ class WebTokenAction extends \USF\IdM\AuthTransfer\BasicAuthServiceAction {
             // Lookup appId in ApplicationRegistry
             $application = $this->authService->findApplicationinRegistry($appId);
             // Return an error message if the appID is not found
-            if (empty($application) {
+            if (empty($application)) {
                 $this->logger->error("Request for Web Token Login - Invalid Application ID: ${appId}|BAD_PARAMS"); 
                 return $response->withJson(['result' => 'error', 'reason' => "Valid Application ID required." ],400);
             }
@@ -92,7 +92,7 @@ class WebTokenAction extends \USF\IdM\AuthTransfer\BasicAuthServiceAction {
             // Lookup appId in ApplicationRegistry
             $application = $this->authService->findApplicationinRegistry($appId);
             // Return an error message if the appID is not found
-            if (empty($application) {
+            if (empty($application)) {
                 $this->logger->error("Request for Web Token Login - Invalid Application ID: ${appId}|BAD_PARAMS"); 
                 return $response->withJson(['result' => 'error', 'reason' => "Valid Application ID required." ],400);
             }
@@ -146,7 +146,7 @@ class WebTokenAction extends \USF\IdM\AuthTransfer\BasicAuthServiceAction {
             // Lookup appId in ApplicationRegistry
             $application = $this->authService->findApplicationinRegistry($appId);
             // Return an error message if the appID is not found
-            if (empty($application) {
+            if (empty($application)) {
                 $this->logger->error("Request for Web Token Validation - Invalid Application ID: ${appId}|BAD_PARAMS"); 
                 return $response->withJson(['result' => 'error', 'reason' => "Valid Application ID required." ],400);
             }
