@@ -13,3 +13,4 @@ logs/*
 composer.lock
 public/assets/
 nbproject/
+/assets/bower_components/

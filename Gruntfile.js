@@ -94,16 +94,24 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         flatten: true,
-                        src: ['./assets/fonts/**'],
+                        src: ['./assets/bower_components/components-font-awesome/fonts/**'],
+                        dest: './public/assets/fonts',
+                        filter: 'isFile'
+                    },
+                    // includes files within path
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['./assets/bower_components/bootstrap-sass/assets/fonts/bootstrap/**'],
                         dest: './public/assets/fonts',
                         filter: 'isFile'
                     }
-                ],
+                ]
             }
         },
         concat: {
             options: {
-                separator: ';',
+                separator: ';'
             },
             main_js: {
                 src: ['./assets/javascript/main.js'],
@@ -116,7 +124,7 @@ module.exports = function(grunt) {
             },
             main_js: {
                 files: {
-                    './public/assets/javascript/main.js': './public/assets/javascript/main.js',
+                    './public/assets/javascript/main.js': './public/assets/javascript/main.js'
                 }
             }
         },

@@ -32,3 +32,7 @@ $app->get('/login','AuthTransfer\WebToken\Action\WebTokenAction:login')
 $app->post('/login','AuthTransfer\WebToken\Action\WebTokenAction:login')
     ->setName('validate');
 
+$app->get('/example', function() use($app) {
+    $app->render('example.html'); 
+});
+
